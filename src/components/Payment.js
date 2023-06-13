@@ -36,8 +36,6 @@ const Payment = () => {
     getClientSecret();
   }, [basket]);
 
-  console.log("The client secret is " + clientSecret);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setProcessing(true);
@@ -49,8 +47,6 @@ const Payment = () => {
         },
       })
       .then((paymentIntent) => {
-        console.log(paymentIntent?.error?.payment_intent);
-        debugger;
         //paymentIntent = payment confirmation
 
         db.collection("users")
